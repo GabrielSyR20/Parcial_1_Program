@@ -19,10 +19,10 @@ def cargar_alumnos_notas():  # Lista para almacenar los alumnos y sus notas
 
 cant_alumnos, cant_examenes = cargar_alumnos_notas()  # Llamada a la función para cargar alumnos y exámenes
 #cargar_alumnos_notas()
-alumnos = [cant_alumnos, cant_examenes]  # Ejemplo de uso con 3 alumnos y 4 notas
+alumnos = [cant_alumnos, cant_examenes]
 
 notas_alumnos = f.cargar_matriz_notas(alumnos[0], alumnos[1])  # Cargar notas de 10 alumnos con 3 notas cada uno
-porcentaje_aprobados = f.porcentaje_aprobados(notas_alumnos, alumnos[0])  # Calcular porcentaje de aprobados
+porcentaje_aprobados = f.porcentaje_aprobados(notas_alumnos)  # Calcular porcentaje de aprobados
 
-print("Notas cargadas al sistema!!")# Ejemplo de uso con 3 alumnos y 4 notas
+print("Notas cargadas al sistema!!")
 print(f"Porcentaje de aprobados: {porcentaje_aprobados}%")  # Mostrar porcentaje de aprobados

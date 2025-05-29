@@ -25,7 +25,7 @@ def cargar_matriz_notas(n, m):
         matriz.append(fila)
     return matriz
 
-def porcentaje_aprobados(matriz,):
+def porcentaje_aprobados(matriz):
     aprobados = 0
     total = len(matriz) * len(matriz[0])  # Total de notas
 
