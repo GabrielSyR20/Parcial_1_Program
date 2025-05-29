@@ -1,10 +1,8 @@
 from Validar import *
 
-def cargar_matriz_notas(n, m):
-    # devuelve una matriz de las notas de los alumnos
+def cargar_matriz_notas(n, m): # devuelve una matriz de las notas de los alumnos
     # n: Número de alumnos
     # m: Número de exámenes
-
     matriz = []
     for i in range(n):
         fila = []
@@ -25,14 +23,31 @@ def cargar_matriz_notas(n, m):
         matriz.append(fila)
     return matriz
 
-def porcentaje_aprobados(matriz):
-    aprobados = 0
-    total = len(matriz) * len(matriz[0])  # Total de notas
-
-    print(f"Total de notas: {total}")
-    for fila in matriz:
-        for nota in fila:
-            if nota >= 6:  # Consideramos aprobado si la nota es mayor o igual a 6
+def porcentaje_aprobados(matriz): # Calcula el porcentaje de exámenes aprobados por alumno
+    # matriz: Matriz de notas de los alumnos
+    for i in range(len(matriz)):
+        total = 0
+        aprobados = 0
+        for j in range(len(matriz[i])):
+            total += 1
+            if matriz[i][j] >= 6:
                 aprobados += 1
-    return (aprobados / total) * 100 if total > 0 else 0
+        porcentaje = (aprobados * 100) / total
+        print(f"Alumno {i + 1}: {porcentaje:.2f}% de examenes aprobados")
 
+def mejor_promedio(matriz): # Calcula el alumno con mejor promedio
+    # matriz: Matriz de notas de los alumnos
+    mejor_prom = 0
+    indice = 0
+
+    for i in range(len(matriz)):
+        suma = 0
+        for j in range(len(matriz[i])):
+            suma += matriz[i][j]
+        promedio = suma / len(matriz[i])
+
+        if i == 0 or promedio > mejor_prom:
+            mejor_prom = promedio
+            indice = i
+
+    print(f"El alumno con mejor promedio es el {indice + 1} con un promedio de {mejor_prom:.2f}")
