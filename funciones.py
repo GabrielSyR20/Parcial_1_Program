@@ -40,9 +40,9 @@ def mejor_promedio(matriz): # Calcula el alumno con mejor promedio
     mejor_prom = 0
     indice = 0
 
-    for i in range(len(matriz)):
+    for i in range(len(matriz)): # Recorre las filas de la matriz
         suma = 0
-        for j in range(len(matriz[i])):
+        for j in range(len(matriz[i])): # Recorre las columnas de la fila actual
             suma += matriz[i][j]
         promedio = suma / len(matriz[i])
 
@@ -51,3 +51,13 @@ def mejor_promedio(matriz): # Calcula el alumno con mejor promedio
             indice = i
 
     print(f"El alumno con mejor promedio es el {indice + 1} con un promedio de {mejor_prom:.2f}")
+
+def buscar_nota(matriz, nota): # Busca una nota especifica decidida por el usuario
+    # matriz: Matriz de notas de los alumnos
+    # nota: Nota a buscar
+    posiciones = []
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            if matriz[i][j] == nota:
+                posiciones.append((i + 1, j + 1))  # Almacena la posición (fila, columna)
+    return posiciones  # Retorna una lista de tuplas con las posiciones de la nota encontrada

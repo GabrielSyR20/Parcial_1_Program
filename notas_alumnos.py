@@ -55,6 +55,21 @@ def menu():
                         else:
                             print("Primero debe cargar las notas de los alumnos!!")
                     case 4:
+                        if notas_cargadas:
+                            nota = input("Ingrese la nota que quiere buscar: ")
+                            if es_entero(nota):
+                                nota = int(nota)
+                                posiciones = f.buscar_nota(notas_alumnos, nota)
+                                print(posiciones)
+                                if posiciones: # Si se encontraron posiciones, mostrar las posiciones donde se encontró la nota
+
+                                    for pos in posiciones:
+                                        # pos[0] es el índice del alumno, pos[1] es el índice del examen
+                                        print(f"La nota {nota} se encuentra en las siguientes posiciones: "
+                                              f"Alumno {pos[0]}, Examen {pos[1]}")
+                                        
+                                else:
+                                    print(f"La nota {nota} no se encontró en ninguna posición.")
                         print("------------------")
                     case 5:
                         for i in range(3):
